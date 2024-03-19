@@ -196,8 +196,8 @@ class BigWorld4 extends Phaser.Scene {
         this.player.anims.stop();
     }
     if (
-      this.player.x > 205 &&
-      this.player.x < 269 &&
+      this.player.x < 205 &&
+      this.player.x > 269 &&
       this.player.y < 376
   
     ) {

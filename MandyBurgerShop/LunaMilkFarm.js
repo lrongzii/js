@@ -175,6 +175,8 @@ class LunaMilkFarm extends Phaser.Scene {
 
     // camera follow player
     //this.cameras.main.startFollow(this.player);
+    this.physics.add.overlap(this.player, [this.Milk1,this.Milk2, this.Milk3,this.Milk4,this.Milk5] ,this.collectMilk, null, this);
+
   } /////////////////// end of create //////////////////////////////
 
   update() {
@@ -202,7 +204,8 @@ class LunaMilkFarm extends Phaser.Scene {
   if (
     this.player.y > 544 &&
     this.player.y < 698 &&
-    this.player.x < 120
+    this.player.x < 120 &&
+    window.Milk > 4
 
   ) {
     console.log("BigWorld2");
@@ -211,10 +214,19 @@ class LunaMilkFarm extends Phaser.Scene {
 
 }
 }
+collectMilk(player, item) {
+  console.log("collectMilk");
+  this.cameras.main.shake(100);
+  window.Milk++
+  console.log(window.Milk)
+  item.disableBody(true, true); // remove fire
+  return false;
+}
 
 BigWorld2(player, tile) {
   console.log("BigWorld2 function");
   this.scene.start("BigWorld2");
+
 }
 }
 

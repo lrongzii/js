@@ -9,7 +9,7 @@ let config = {
             debug: true
         }
     },
-    backgroundColor: '#000000',
+    backgroundColor: '#ffd8e1',
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
@@ -19,3 +19,4 @@ let config = {
 };
 
 let game = new Phaser.Game(config);
+ window.Milk=0

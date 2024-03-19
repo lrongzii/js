@@ -173,9 +173,10 @@ class BaileyChickenFactory extends Phaser.Scene {
         this.player.anims.stop();
     }
     if (
-      this.player.y > 561 &&
-      this.player.y < 681 &&
-      this.player.x > 81
+      this.player.x > 91 &&
+      this.player.y > 574 &&
+      this.player.y < 689
+
   
     ) {
       console.log("BigWorld4");

@@ -10,6 +10,7 @@ class MandyBurgerShop extends Phaser.Scene {
   preload() {
     // Step 1, load JSON
     this.load.tilemapTiledJSON("MandyBurgerShop", "assets/MandyBurgerShop.tmj");
+    this.load.audio("bgmusic", "assets/Lullaby.mp3");
 
     // Step 2 : Preload any images here
     this.load.image("tilesetimg", "assets/tileset.png");
@@ -22,6 +23,9 @@ class MandyBurgerShop extends Phaser.Scene {
 
   create() {
     console.log("MandyBurgerShop");
+
+    this.music = this.sound.add("bgmusic",{loop: true}).setVolume(0.2);
+    this.music.play();
 
     this.anims.create({
       key: "gen-up",
