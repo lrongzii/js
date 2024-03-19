@@ -10,8 +10,12 @@ let config = {
         }
     },
     backgroundColor: '#000000',
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+       },
     scene: [ MandyBurgerShop , BigWorld , BigWorld2 , BigWorld3 , BigWorld4 , LunaMilkFarm , EzraLettuceField , BaileyChickenFactory , Cave]
-
+    
 };
 
 let game = new Phaser.Game(config);
