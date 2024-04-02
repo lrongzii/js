@@ -201,16 +201,16 @@ class BigWorld extends Phaser.Scene {
       this.player.y < 418
   
     ) {
-      console.log("MissionOne");
-      this.MissionOne();
+      console.log("LunaSpeech");
+      this.LunaSpeech();
 
   
   }
   }
   
-  MissionOne(player, tile) {
-    console.log("MissionOne function");
-    this.scene.start("MissionOne");
+  LunaSpeech(player, tile) {
+    console.log("LunaSpeech function");
+    this.scene.start("LunaSpeech");
   }
   }
   /////////////////// end of create //////////////////////////////

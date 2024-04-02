@@ -18,12 +18,14 @@ class EzraLettuceField extends Phaser.Scene {
     this.load.spritesheet('gen', 'assets/gen.png',{ frameWidth:64, frameHeight:64})
     this.load.spritesheet('Butterfly', 'assets/Butterfly.png',{ frameWidth:64, frameHeight:64})
     this.load.spritesheet('Snail', 'assets/Snail.png',{ frameWidth:64, frameHeight:64})
-
+    this.load.spritesheet("attack", "assets/knife.png", {frameWidth: 200,frameHeight: 200,});
   
   }
 
   create() {
     console.log("EzraLettuceField");
+    console.log("Snail", window.Snail );
+
 
     this.anims.create({
       key:'gen-up',
@@ -83,9 +85,32 @@ class EzraLettuceField extends Phaser.Scene {
     this.LettuceLayer = map.createLayer("Lettuce",tilesArray,0,0);
     this.TreeLayer = map.createLayer("Tree",tilesArray,0,0);
     
+    var attackLeft = this.input.keyboard.addKey("z");
+  var attackRight = this.input.keyboard.addKey("x");
+
+attackLeft.on(
+  "down",
+  function () {
+    this.attackLeft();
+  },
+  this
+);
+
+attackRight.on(
+  "down",
+  function () {
+    this.attackRight();
+  },
+  this
+);
 
 
     // Add main player here with physics.add.sprite
+
+    this.player = this.physics.add.sprite(128, 227, 'gen'); 
+    window.player = this.player
+
+
     let Snail1 = map.findObject("objectLayer1", (obj) => obj.name === "Snail1"); 
     let Snail2 = map.findObject("objectLayer1", (obj) => obj.name === "Snail2"); 
     let Snail3 = map.findObject("objectLayer1", (obj) => obj.name === "Snail3"); 
@@ -279,6 +304,24 @@ this.tweens.add({
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
+    this.attack = this.physics.add.sprite(
+      this.player.x,
+      this.player.y,
+      "attack"
+    ).setScale(0.5);
+    this.attack.setVisible(false);
+    
+    window.attack=this.attack;
+    //this.physics.add.overlap(this.player,[this.Snail1,this.Snail2] ,this.killSnail,null,this);
+    this.physics.add.overlap(this.attack,[this.Snail1,this.Snail2,this.Snail3,this.Snail4,this.Snail5,this.Snail6,this.Snail7,this.Snail8] ,this.killSnail,null,this);
+   
+
+    // this.physics.add.overlap(
+    //   this.attack,
+    //   [this.Snail1, this.Snail2, this.Snail3, this.Snail4,this.Snail5,this.Snail6,this.Snail7,this.Snail8],
+    //   this.killSnail,null,this);
+
+
     console.log("This is preloadScene spacebar V3");
 
         var key1Down = this.input.keyboard.addKey(49);
@@ -312,9 +355,11 @@ this.tweens.add({
               this.scene.start("Cave");
     },this);
 
-            this.player = this.physics.add.sprite(128, 227, 'gen'); 
-        window.player = this.player
+      
        
+    
+
+
         // create the arrow keys
         this.cursors = this.input.keyboard.createCursorKeys();
         
@@ -362,14 +407,60 @@ this.tweens.add({
   if (
     this.player.x > 381 &&
     this.player.x < 480 &&
-    this.player.y < 194
+    this.player.y < 194 &&
+    window.Snail < 1
 
   ) {
+    console.log("Snail", window.Snail );
     console.log("BaileyChickenFactoryScene");
     this.BaileyChickenFactoryScene();
 
 
 }
+}
+
+attackLeft(player,Snail) {
+    
+  console.log("attack left");
+
+  this.attack.x = this.player.x;
+  this.attack.y = this.player.y;
+
+  this.attack.setVisible(true);
+  this.attack.body.setEnable(true);
+
+  this.attack.body.setVelocityX(-500);
+  //window.Snail--;
+  //Snail.disableBody(true, true);
+}
+
+attackRight(player,Snail) {
+  console.log("attack right");
+
+  this.attack.x = this.player.x;
+  this.attack.y = this.player.y;
+
+  this.attack.setVisible(true);
+  this.attack.body.setEnable(true);
+
+  this.attack.body.setVelocityX(500);
+
+ // Snail.disableBody(true, true);
+  // deduct snail
+//  window.Snail--;
+
+  // remove the snail
+ // this.Snail.disableBody(true,true);
+ }
+
+killSnail(attack, Snail) {
+  
+  attack.disableBody(true, true);
+  Snail.disableBody(true, true);
+
+  // deduct zombie
+  window.Snail--;
+  console.log("Attack hit Snail", window.Snail );
 }
 
 

@@ -303,7 +303,7 @@ class BaileyChickenFactory extends Phaser.Scene {
   hitChicken(player, item) {
     console.log("hitChicken");
     this.cameras.main.shake(200);
-    this.scene.start("GameOver")
+    this.scene.start("GameOverBailey")
     return false;
   }
   

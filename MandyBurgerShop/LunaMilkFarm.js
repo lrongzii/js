@@ -296,7 +296,7 @@ collectMilk(player, item) {
 hitCow(player, item) {
   console.log("hitCow");
   this.cameras.main.shake(200);
-  this.scene.start("GameOver")
+  this.scene.start("GameOverLuna")
   return false;
 }
 
