@@ -201,16 +201,16 @@ class BigWorld3 extends Phaser.Scene {
       this.player.x < 262
   
     ) {
-      console.log("BaileyChickenFactory");
-      this.BaileyChickenFactory();
+      console.log("MissionThree");
+      this.MissionThree();
 
   
   }
   }
   
-  BaileyChickenFactory(player, tile) {
-    console.log("BaileyChickenFactory");
-    this.scene.start("BaileyChickenFactory");
+  MissionThree(player, tile) {
+    console.log("MissionThree");
+    this.scene.start("MissionThree");
   }
   }
   /////////////////// end of create //////////////////////////////

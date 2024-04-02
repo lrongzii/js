@@ -201,16 +201,16 @@ class BigWorld extends Phaser.Scene {
       this.player.y < 418
   
     ) {
-      console.log("LunaMilkFarm");
-      this.LunaMilkFarm();
+      console.log("MissionOne");
+      this.MissionOne();
 
   
   }
   }
   
-  LunaMilkFarm(player, tile) {
-    console.log("LunaMilkFarm function");
-    this.scene.start("LunaMilkFarm");
+  MissionOne(player, tile) {
+    console.log("MissionOne function");
+    this.scene.start("MissionOne");
   }
   }
   /////////////////// end of create //////////////////////////////

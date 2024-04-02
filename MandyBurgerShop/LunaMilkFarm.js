@@ -10,21 +10,27 @@ class LunaMilkFarm extends Phaser.Scene {
   preload() {
     // Step 1, load JSON
     this.load.tilemapTiledJSON("LunaMilkFarm", "assets/LunaMilkFarm.tmj");
+    this.load.audio("collectsound", "assets/collectsound.mp3");
 
     // Step 2 : Preload any images here
     this.load.image("Milkimg", "assets/Milk.png");
-    this.load.image("Cowimg", "assets/cow.png");
     this.load.image("Villasimg", "assets/7_Villas_32x32.png");
     this.load.image("plantimg", "assets/plant.png");
     this.load.image("Grassimg", "assets/Grass.png");
     this.load.image("Wooden Houseimg", "assets/Wooden House.png");
-    this.load.image("desert1img", "assets/desert1.png");
+    this.load.image("lifeimg", "assets/Life.png");
+
 
     this.load.spritesheet('gen', 'assets/gen.png',{ frameWidth:64, frameHeight:64})
+    this.load.spritesheet('Cow', 'assets/Cow.png',{ frameWidth:64, frameHeight:64})
+
   }
 
   create() {
     console.log("LunaMilkFarm");
+
+    this.music = this.sound.add("collectsound").setVolume(0.4);
+    this.music.play();
 
     this.anims.create({
       key:'gen-up',
@@ -57,6 +63,39 @@ class LunaMilkFarm extends Phaser.Scene {
       frameRate:5,
       repeat:-1
   });
+
+  this.anims.create({
+    key:'Cow-up',
+    frames:this.anims.generateFrameNumbers('Cow',
+    { start:9, end:11 }),
+    frameRate:5,
+    repeat:-1
+});
+
+this.anims.create({
+    key:'Cow-left',
+    frames:this.anims.generateFrameNumbers('Cow',
+    { start:3, end:5 }),
+    frameRate:5,
+    repeat:-1
+});
+
+this.anims.create({
+    key:'Cow-down',
+    frames:this.anims.generateFrameNumbers('Cow',
+    { start:0, end:2 }),
+    frameRate:5,
+    repeat:-1
+});
+
+this.anims.create({
+    key:'Cow-right',
+    frames:this.anims.generateFrameNumbers('Cow',
+    { start:6, end:8 }),
+    frameRate:5,
+    repeat:-1
+});
+  
 
     //Step 3 - Create the map from main
     let map = this.make.tilemap({ key: "LunaMilkFarm" });
@@ -109,6 +148,15 @@ class LunaMilkFarm extends Phaser.Scene {
     let Milk4 = map.findObject("objectLayer", (obj) => obj.name === "Milk4");
     let Milk5 = map.findObject("objectLayer", (obj) => obj.name === "Milk5");
 
+    let Cow1 = map.findObject("objectLayer2", (obj) => obj.name === "Cow1"); 
+    let Cow2 = map.findObject("objectLayer2", (obj) => obj.name === "Cow2");
+    let Cow3 = map.findObject("objectLayer2", (obj) => obj.name === "Cow3");
+    let Cow4 = map.findObject("objectLayer2", (obj) => obj.name === "Cow4");
+    let Cow5 = map.findObject("objectLayer2", (obj) => obj.name === "Cow5");
+    let Cow6 = map.findObject("objectLayer2", (obj) => obj.name === "Cow6");
+    let Cow7 = map.findObject("objectLayer2", (obj) => obj.name === "Cow7");
+
+
 
     // Define your items with objectLayer
     this.Milk1 = this.physics.add.sprite(Milk1.x, Milk1.y, "Milkimg")
@@ -116,6 +164,15 @@ class LunaMilkFarm extends Phaser.Scene {
     this.Milk3 = this.physics.add.sprite(Milk3.x, Milk3.y, "Milkimg")
     this.Milk4 = this.physics.add.sprite(Milk4.x, Milk4.y, "Milkimg")
     this.Milk5 = this.physics.add.sprite(Milk5.x, Milk5.y, "Milkimg")
+
+    this.Cow1 = this.physics.add.sprite(Cow1.x, Cow1.y, "Cow").play("Cow-left").setScale(1.2)
+    this.Cow2 = this.physics.add.sprite(Cow2.x, Cow2.y, "Cow").play("Cow-right").setScale(1.2)
+    this.Cow3 = this.physics.add.sprite(Cow3.x, Cow3.y, "Cow").play("Cow-left").setScale(1.2)
+    this.Cow4 = this.physics.add.sprite(Cow4.x, Cow4.y, "Cow").play("Cow-right").setScale(1.2)
+    this.Cow5 = this.physics.add.sprite(Cow5.x, Cow5.y, "Cow").play("Cow-left").setScale(1.2)
+    this.Cow6 = this.physics.add.sprite(Cow6.x, Cow6.y, "Cow").play("Cow-right").setScale(1.2)
+    this.Cow7 = this.physics.add.sprite(Cow7.x, Cow7.y, "Cow").play("Cow-left").setScale(1.2)
+
 
 
     // create the arrow keys
@@ -129,6 +186,7 @@ class LunaMilkFarm extends Phaser.Scene {
         var key3Down = this.input.keyboard.addKey(52);
         var key4Down = this.input.keyboard.addKey(53);
         var key5Down = this.input.keyboard.addKey(54);
+
 
         key1Down.on('down', function(){
             console.log("Key 1 pressed");
@@ -176,10 +234,20 @@ class LunaMilkFarm extends Phaser.Scene {
     // camera follow player
     //this.cameras.main.startFollow(this.player);
     this.physics.add.overlap(this.player, [this.Milk1,this.Milk2, this.Milk3,this.Milk4,this.Milk5] ,this.collectMilk, null, this);
+    this.physics.add.overlap(this.player,[this.Cow1,this.Cow2,this.Cow3,this.Cow4,this.Cow5,this.Cow6,this.Cow7] ,this.hitCow,null,this);
 
   } /////////////////// end of create //////////////////////////////
 
   update() {
+
+    this.physics.moveToObject(this.Cow1,this.player, 500, 2000);
+        this.physics.moveToObject(this.Cow2,this.player, 380, 3050);
+        this.physics.moveToObject(this.Cow3,this.player, 700, 3000);
+        this.physics.moveToObject(this.Cow4,this.player, 450, 1000);
+        this.physics.moveToObject(this.Cow5,this.player, 470, 1500);
+        this.physics.moveToObject(this.Cow6,this.player, 200, 2500);
+        this.physics.moveToObject(this.Cow7,this.player, 250, 3500);
+
     if (this.cursors.left.isDown)
     {
         this.player.setVelocityX(-160);
@@ -208,28 +276,38 @@ class LunaMilkFarm extends Phaser.Scene {
     window.Milk > 4
 
   ) {
-    console.log("BigWorld2");
-    this.BigWorld2();
+    console.log("EzraLettuceFieldScene");
+    this.EzraLettuceFieldScene();
 
+    
+  
 
 }
 }
 collectMilk(player, item) {
   console.log("collectMilk");
-  this.cameras.main.shake(100);
   window.Milk++
+  this.music.play();
   console.log(window.Milk)
   item.disableBody(true, true); // remove fire
   return false;
 }
 
-BigWorld2(player, tile) {
-  console.log("BigWorld2 function");
-  this.scene.start("BigWorld2");
+hitCow(player, item) {
+  console.log("hitCow");
+  this.cameras.main.shake(200);
+  this.scene.start("GameOver")
+  return false;
+}
+
+
+
+EzraLettuceFieldScene(player, tile) {
+  console.log("EzraLettuceFieldScene function");
+  this.scene.start("EzraLettuceFieldScene");
 
 }
 }
-
  //////////// end of class world ////////////////////////
 
 

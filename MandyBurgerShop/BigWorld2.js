@@ -201,16 +201,16 @@ class BigWorld2 extends Phaser.Scene {
       this.player.y > 952
   
     ) {
-      console.log("EzraLettuceField");
-      this.EzraLettuceField();
+      console.log("MissionTwo");
+      this.MissionTwo();
 
   
   }
   }
   
-  EzraLettuceField(player, tile) {
-    console.log("EzraLettuceField function");
-    this.scene.start("EzraLettuceField");
+  MissionTwo(player, tile) {
+    console.log("MissionTwo function");
+    this.scene.start("MissionTwo");
   }
   }
   /////////////////// end of create //////////////////////////////

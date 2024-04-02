@@ -16,6 +16,11 @@ class EzraLettuceField extends Phaser.Scene {
     this.load.image("Grassimg", "assets/Grass.png");
 
     this.load.spritesheet('gen', 'assets/gen.png',{ frameWidth:64, frameHeight:64})
+    this.load.spritesheet('Butterfly', 'assets/Butterfly.png',{ frameWidth:64, frameHeight:64})
+    this.load.spritesheet('Snail', 'assets/Snail.png',{ frameWidth:64, frameHeight:64})
+    this.load.spritesheet("attack", "assets/knife.png", {frameWidth: 64,frameHeight: 64,});
+
+  
   }
 
   create() {
@@ -53,6 +58,7 @@ class EzraLettuceField extends Phaser.Scene {
       repeat:-1
   });
 
+
     //Step 3 - Create the map from main
     let map = this.make.tilemap({ key: "EzraLettuceField" });
 
@@ -77,10 +83,217 @@ class EzraLettuceField extends Phaser.Scene {
     this.BarnHouseLayer = map.createLayer("Barn House",tilesArray,0,0);
     this.LettuceLayer = map.createLayer("Lettuce",tilesArray,0,0);
     this.TreeLayer = map.createLayer("Tree",tilesArray,0,0);
+    
+    var attackLeft = this.input.keyboard.addKey("z");
+var attackRight = this.input.keyboard.addKey("x");
+
+attackLeft.on(
+  "down",
+  function () {
+    this.attackLeft();
+  },
+  this
+);
+
+attackRight.on(
+  "down",
+  function () {
+    this.attackRight();
+  },
+  this
+);
+
+this.attack = this.physics.add.sprite(
+  this.player.x,
+  this.player.y,
+  "attack"
+).setScale(0.5);
+this.attack.setVisible(false);
+
+window.attack=this.attack;
+
 
     // Add main player here with physics.add.sprite
+    let Snail1 = map.findObject("objectLayer1", (obj) => obj.name === "Snail1"); 
+    let Snail2 = map.findObject("objectLayer1", (obj) => obj.name === "Snail2"); 
+    let Snail3 = map.findObject("objectLayer1", (obj) => obj.name === "Snail3"); 
+    let Snail4 = map.findObject("objectLayer1", (obj) => obj.name === "Snail4"); 
+    let Snail5 = map.findObject("objectLayer1", (obj) => obj.name === "Snail5"); 
+    let Snail6 = map.findObject("objectLayer1", (obj) => obj.name === "Snail6"); 
+    let Snail7 = map.findObject("objectLayer1", (obj) => obj.name === "Snail7"); 
+    let Snail8 = map.findObject("objectLayer1", (obj) => obj.name === "Snail8"); 
+
+    let Butterfly1 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly1"); 
+    let Butterfly2 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly2"); 
+    let Butterfly3 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly3"); 
+    let Butterfly4 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly4"); 
+    let Butterfly5 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly5"); 
+    let Butterfly6 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly6"); 
+    let Butterfly7 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly7"); 
+    let Butterfly8 = map.findObject("objectLayer2", (obj) => obj.name === "Butterfly8"); 
 
     // Add time event / movement here
+    this.Snail1 = this.physics.add.sprite(Snail1.x, Snail1.y, "Snail")
+    this.Snail2 = this.physics.add.sprite(Snail2.x, Snail2.y, "Snail")
+    this.Snail3 = this.physics.add.sprite(Snail3.x, Snail3.y, "Snail")
+    this.Snail4 = this.physics.add.sprite(Snail4.x, Snail4.y, "Snail")
+    this.Snail5 = this.physics.add.sprite(Snail5.x, Snail5.y, "Snail")
+    this.Snail6 = this.physics.add.sprite(Snail6.x, Snail6.y, "Snail")
+    this.Snail7 = this.physics.add.sprite(Snail7.x, Snail7.y, "Snail")
+    this.Snail8 = this.physics.add.sprite(Snail8.x, Snail8.y, "Snail")
+
+    this.Butterfly1 = this.physics.add.sprite(Butterfly1.x, Butterfly1.y, "Butterfly")
+    this.Butterfly2 = this.physics.add.sprite(Butterfly2.x, Butterfly2.y, "Butterfly")
+    this.Butterfly3 = this.physics.add.sprite(Butterfly3.x, Butterfly3.y, "Butterfly")
+    this.Butterfly4 = this.physics.add.sprite(Butterfly4.x, Butterfly4.y, "Butterfly")
+    this.Butterfly5 = this.physics.add.sprite(Butterfly5.x, Butterfly5.y, "Butterfly")
+    this.Butterfly6 = this.physics.add.sprite(Butterfly6.x, Butterfly6.y, "Butterfly")
+    this.Butterfly7 = this.physics.add.sprite(Butterfly7.x, Butterfly7.y, "Butterfly")
+    this.Butterfly8 = this.physics.add.sprite(Butterfly8.x, Butterfly8.y, "Butterfly")
+
+    this.tweens.add({
+      targets: this.Snail1,
+      x: 173,
+      flipX: true,
+      yoyo: true,
+      duration: 4000,
+      repeat: -1
+  })
+
+  this.tweens.add({
+    targets: this.Snail2,
+    x: 727,
+    flipX: true,
+    yoyo: true,
+    duration: 4000,
+    repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Snail3,
+  x: 186,
+  flipX: true,
+  yoyo: true,
+  duration: 4000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Snail4,
+  x: 693,
+  flipX: true,
+  yoyo: true,
+  duration: 4000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Snail5,
+  x: 250,
+  flipX: true,
+  yoyo: true,
+  duration: 4000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Snail6,
+  x: 650,
+  flipX: true,
+  yoyo: true,
+  duration: 4000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Snail7,
+  x: 797,
+  flipX: true,
+  yoyo: true,
+  duration: 4000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Snail8,
+  x: 722,
+  flipX: true,
+  yoyo: true,
+  duration: 4000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly1,
+  x: 722,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly2,
+  x: 679,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly3,
+  x: 333,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly4,
+  x: 700,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly5,
+  x: 338,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly6,
+  x: 618,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly7,
+  x: 266,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
+
+this.tweens.add({
+  targets: this.Butterfly8,
+  x: 722,
+  flipX: true,
+  yoyo: true,
+  duration: 2000,
+  repeat: -1
+})
 
     // get the tileIndex number in json, +1
     //mapLayer.setTileIndexCallback(11, this.room1, this);
@@ -136,6 +349,61 @@ class EzraLettuceField extends Phaser.Scene {
         // // camera follow player
         this.cameras.main.startFollow(this.player);
 
+        this.physics.add.overlap(
+          this.player,
+          this.Snail1,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail2,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail3,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail4,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail5,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail6,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail7,
+          null,
+          this
+        );
+        this.physics.add.overlap(
+          this.player,
+          this.Snail8,
+          null,
+          this
+        );
+
+        this.physics.add.overlap(
+          this.attack,
+          [this.Snail1, this.Snail2, this.Snail3, this.Snail4,this.Snail5,this.Snail6,this.Snail7,this.Snail8],
+          this.killSnail,null,this);
+
+
         this.player.body
         .setSize(this.player.width * 0.55, this.player.height * 0.4)
         .setOffset(15,40)
@@ -179,16 +447,61 @@ class EzraLettuceField extends Phaser.Scene {
     this.player.y < 194
 
   ) {
-    console.log("BigWorld3");
-    this.BigWorld3();
+    console.log("BaileyChickenFactoryScene");
+    this.BaileyChickenFactoryScene();
 
 
 }
 }
 
-BigWorld3(player, tile) {
-  console.log("BigWorld3 function");
-  this.scene.start("BigWorld3");
+attackLeft() {
+    
+  console.log("attack left");
+
+  this.attack.x = this.player.x;
+  this.attack.y = this.player.y;
+
+  this.attackSnd.play();
+
+  this.attack.setVisible(true);
+  this.attack.body.setEnable(true);
+
+  this.attack.body.setVelocityX(-500);
+}
+
+attackRight() {
+  console.log("attack right");
+
+  this.attack.x = this.player.x;
+  this.attack.y = this.player.y;
+
+  this.attackSnd.play();
+
+  this.attack.setVisible(true);
+  this.attack.body.setEnable(true);
+
+  this.attack.body.setVelocityX(500);
+
+  // deduct snail
+  window.Snail--;
+
+  // remove the snail
+  this.Snail.disableBody(true,true);
+ }
+
+killSnail(attack, Snail) {
+  console.log("Attack hit Snail");
+
+  attack.disableBody(true, true);
+  Snail.disableBody(true, true);
+
+  // deduct zombie
+  window.Snail--;
+}
+
+BaileyChickenFactoryScene(player, tile) {
+  console.log("BaileyChickenFactoryScene function");
+  this.scene.start("BaileyChickenFactoryScene");
 }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="35">
  <editorsettings>
   <export target="BaileyChickenFactory.tmj" format="json"/>
  </editorsettings>
@@ -59,6 +59,70 @@
 324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324
 </data>
  </layer>
+ <objectgroup id="13" name="objectLayer1">
+  <object id="11" name="GoodChicken10" x="222.344" y="304.061">
+   <point/>
+  </object>
+  <object id="12" name="GoodChicken9" x="545.409" y="511.202">
+   <point/>
+  </object>
+  <object id="13" name="GoodChicken8" x="446.589" y="404.781">
+   <point/>
+  </object>
+  <object id="14" name="GoodChicken7" x="193.839" y="716.443">
+   <point/>
+  </object>
+  <object id="15" name="GoodChicken6" x="579.615" y="881.775">
+   <point/>
+  </object>
+  <object id="16" name="GoodChicken5" x="229.945" y="1163.03">
+   <point/>
+  </object>
+  <object id="17" name="GoodChicken4" x="629.025" y="693.638">
+   <point/>
+  </object>
+  <object id="18" name="GoodChicken3" x="988.202" y="917.883">
+   <point/>
+  </object>
+  <object id="19" name="GoodChicken2" x="1202.94" y="387.677">
+   <point/>
+  </object>
+  <object id="20" name="GoodChicken1" x="919.785" y="364.873">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="14" name="objectLayer2">
+  <object id="21" name="BadChicken10" x="619.523" y="1083.22">
+   <point/>
+  </object>
+  <object id="22" name="BadChicken9" x="423.784" y="1176.33">
+   <point/>
+  </object>
+  <object id="23" name="BadChicken8" x="296.459" y="876.075">
+   <point/>
+  </object>
+  <object id="24" name="BadChicken7" x="868.473" y="613.822">
+   <point/>
+  </object>
+  <object id="25" name="BadChicken6" x="670.834" y="395.279">
+   <point/>
+  </object>
+  <object id="26" name="BadChicken5" x="210.942" y="355.371">
+   <point/>
+  </object>
+  <object id="27" name="BadChicken4" x="1149.73" y="1031.91">
+   <point/>
+  </object>
+  <object id="28" name="BadChicken3" x="744.949" y="191.938">
+   <point/>
+  </object>
+  <object id="29" name="BadChicken2" x="1208.64" y="440.888">
+   <point/>
+  </object>
+  <object id="30" name="BadChicken1" x="146.329" y="315.463">
+   <point/>
+  </object>
+ </objectgroup>
  <layer id="4" name="Floor" width="40" height="40">
   <data encoding="csv">
 56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,

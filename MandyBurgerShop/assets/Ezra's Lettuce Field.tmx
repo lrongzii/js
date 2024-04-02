@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="19">
  <editorsettings>
   <export target="EzraLettuceField.tmj" format="json"/>
  </editorsettings>
@@ -43,6 +43,58 @@
 324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324,324
 </data>
  </layer>
+ <objectgroup id="6" name="objectLayer1" offsetx="1.42528" offsety="-22.8045">
+  <object id="2" name="Snail8" x="183.862" y="379.126">
+   <point/>
+  </object>
+  <object id="3" name="Snail7" x="454.665" y="448.965">
+   <point/>
+  </object>
+  <object id="4" name="Snail6" x="323.54" y="510.251">
+   <point/>
+  </object>
+  <object id="5" name="Snail5" x="832.366" y="570.114">
+   <point/>
+  </object>
+  <object id="6" name="Snail4" x="302.16" y="638.527">
+   <point/>
+  </object>
+  <object id="7" name="Snail3" x="685.562" y="706.941">
+   <point/>
+  </object>
+  <object id="8" name="Snail2" x="257.976" y="772.504">
+   <point/>
+  </object>
+  <object id="9" name="Snail1" x="642.803" y="848.044">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="objectLayer2" offsetx="1.42528" offsety="-17.1034">
+  <object id="10" name="Butterfly8" x="357.746" y="379.125">
+   <point/>
+  </object>
+  <object id="11" name="Butterfly7" x="766.803" y="444.688">
+   <point/>
+  </object>
+  <object id="12" name="Butterfly6" x="229.471" y="513.102">
+   <point/>
+  </object>
+  <object id="13" name="Butterfly5" x="572.964" y="560.137">
+   <point/>
+  </object>
+  <object id="14" name="Butterfly4" x="401.93" y="639.953">
+   <point/>
+  </object>
+  <object id="15" name="Butterfly3" x="796.734" y="705.516">
+   <point/>
+  </object>
+  <object id="16" name="Butterfly2" x="379.125" y="772.504">
+   <point/>
+  </object>
+  <object id="17" name="Butterfly1" x="399.08" y="846.619">
+   <point/>
+  </object>
+ </objectgroup>
  <layer id="1" name="Grass" width="30" height="30">
   <data encoding="csv">
 46,47,48,49,50,46,11,11,11,11,11,11,11,11,11,11,11,48,49,50,46,47,11,49,50,11,47,11,11,11,

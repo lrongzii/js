@@ -196,21 +196,21 @@ class BigWorld4 extends Phaser.Scene {
         this.player.anims.stop();
     }
     if (
-      this.player.x < 205 &&
-      this.player.x > 269 &&
-      this.player.y < 376
+      this.player.x > 208 &&
+      this.player.x < 269 &&
+      this.player.y < 386
   
     ) {
-      console.log("MandyBurgerShop");
-      this.MandyBurgerShop();
+      console.log("Kitchen");
+      this.Kitchen();
 
   
   }
   }
   
-  MandyBurgerShop(player, tile) {
-    console.log("MandyBurgerShop function");
-    this.scene.start("MandyBurgerShop");
+  Kitchen(player, tile) {
+    console.log("Kitchen function");
+    this.scene.start("Kitchen");
   }
   }
   /////////////////// end of create //////////////////////////////

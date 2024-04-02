@@ -1,7 +1,7 @@
-class MandyBurgerShop extends Phaser.Scene {
+class MandyBurgerShop2 extends Phaser.Scene {
   constructor() {
     super({
-      key: "MandyBurgerShop",
+      key: "MandyBurgerShop2",
     });
 
     // Put global variable here
@@ -9,7 +9,7 @@ class MandyBurgerShop extends Phaser.Scene {
 
   preload() {
     // Step 1, load JSON
-    this.load.tilemapTiledJSON("MandyBurgerShop", "assets/MandyBurgerShop.tmj");
+    this.load.tilemapTiledJSON("MandyBurgerShop2", "assets/MandyBurgerShop.tmj");
     this.load.audio("bgmusic", "assets/Lullaby.mp3");
 
     // Step 2 : Preload any images here
@@ -22,7 +22,7 @@ class MandyBurgerShop extends Phaser.Scene {
   }
 
   create() {
-    console.log("MandyBurgerShop");
+    console.log("MandyBurgerShop2");
 
 
     this.anims.create({
@@ -54,7 +54,7 @@ class MandyBurgerShop extends Phaser.Scene {
     });
 
     //Step 3 - Create the map from main
-    let map = this.make.tilemap({ key: "MandyBurgerShop" });
+    let map = this.make.tilemap({ key: "MandyBurgerShop2" });
 
     // Step 4 Load the game tiles
     // 1st parameter is name in Tiled,
@@ -128,7 +128,7 @@ class MandyBurgerShop extends Phaser.Scene {
       this
     );
 
-    this.player = this.physics.add.sprite(825, 182, "gen");
+    this.player = this.physics.add.sprite(224, 130, "gen");
     window.player = this.player;
 
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -163,20 +163,20 @@ class MandyBurgerShop extends Phaser.Scene {
     }
 
     if (
-      this.player.x > 190 &&
-      this.player.x < 248 &&
+      this.player.x > 760 &&
+      this.player.x < 909 &&
       this.player.y < 130
 
     ) {
-      console.log("LunaMilkFarmScene");
-      this.LunaMilkFarmScene();
+      console.log("Prepare");
+      this.Prepare();
 
 }
 }
 
-LunaMilkFarmScene(player, tile) {
-    console.log("LunaMilkFarmScene function");
-    this.scene.start("LunaMilkFarmScene");
+Prepare(player, tile) {
+    console.log("Prepare function");
+    this.scene.start("Prepare");
   }
 }
 //////////// end of class world ////////////////////////
